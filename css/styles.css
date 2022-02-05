@@ -173,6 +173,15 @@ a {
     margin-left: 50px;
 }
 
+.header-nav-link {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-nav-link:hover,
+.header-nav-link:focus {
+    color: #2196F3;
+}
+
 .header-contacts-link .contacts-link {
     font-weight: 500;
     font-size: 14px;
@@ -306,10 +315,8 @@ a {
  
 
     background-color: rgba(0, 0, 0, 0.2);
-    /* background-color: rgba(0, 0, 0, 0,25); */
     opacity: 1;
     transition: opacity 250ms cubic-besier(0.4, 0, 0.2, 1);
-
 }
 
 .backdrop.is-hidden {
@@ -333,7 +340,7 @@ a {
     background: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    transition: transform 250ms;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-modal-btn {
@@ -407,7 +414,6 @@ a {
 /*-------------------ABOUT-------------------*/
 
 .about {
-    padding-bottom: 94px;
     padding-top: 0;
 }
 
@@ -424,19 +430,12 @@ a {
 .about-item {
     width: calc(100% / 3 - 30px);
     margin-left: 30px;
-    /* position: relative; */
+    position: relative;
 }
 
 /* .about-item + .about-item {
     margin-left: 30px;
 } */
-
-.about-thumb {
-    position: relative;
-    width: 370px;
-    bottom: 0;
-    left: 0;
-}
 
 .about-title {
     font-weight: 700;
@@ -452,14 +451,15 @@ a {
     position: absolute;
     bottom: 0;
     left: 0;
-    margin-bottom: 70px;
+    width: 100%;
 
-    background-color:rgba(47, 48, 58, 0.8);
+    background: rgba(47, 48, 58, 0.8);
 
     display: flex;
 }
 
 .about-item-text {
+    align-items: center;
     font-weight: 700;
     font-size: 14px;
     line-height: calc(16 / 14);
@@ -468,15 +468,14 @@ a {
     display: flex;
     text-transform: uppercase;
     justify-content: center;
-    text-align: center;
-    padding-top: 27px;
-    padding-bottom: 27px;
 
     color: #FFFFFF;
 
     position: absolute;
-    width: 370px;
+    width: 100%;
     height: 70px;
+    left: 0;
+    bottom: 0;
 
     background-color:rgba(47, 48, 58, 0.8);
 }
@@ -577,6 +576,8 @@ a {
 }
 
 .team-socials-icon {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     fill: #AFB1B8;
 }
 
@@ -614,9 +615,8 @@ a {
     height: 92px;
 }
 
-.clients-item::after {
+.clients-item {
     display: block;
-    content: '';
     height: 92px;
     /* outline: 1px solid red; */
     background-size: contain;
@@ -640,7 +640,7 @@ a {
 }
 
 .clients-socials-link {
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-socials-link:hover,
@@ -678,7 +678,7 @@ a {
     cursor: pointer;
 
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filters-btn:hover,
@@ -705,8 +705,14 @@ a {
 }
 
 .projects-item:hover .projects-overlay-text {
+    opacity: 1;
     transform: translateY(0);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.projects-item-link:focus .projects-overlay-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-item:not(:last-child) {
@@ -738,6 +744,7 @@ a {
 .projects-thumb {
     position: relative;
     overflow: hidden;
+    
 }
 
 .projects-overlay-text {
@@ -746,8 +753,7 @@ a {
     left: 0;
     width: 370px;
     height: 100%;
-    padding: 30px;
-    /* padding: 63px, 24px; */
+    padding: 63px 24px;
 
     font-weight: 400;
     font-size: 18px;
